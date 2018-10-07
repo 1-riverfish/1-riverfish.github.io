@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-07T12:59:27.270Z</updated>
+  <updated>2018-10-07T14:05:18.042Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Github+Hexo搭建个人博客</title>
     <link href="http://yoursite.com/2018/10/07/Github+Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2018/10/07/Github+Hexo搭建个人博客/</id>
-    <published>2018-10-07T13:16:42.011Z</published>
-    <updated>2018-10-07T12:59:27.270Z</updated>
+    <published>2018-10-07T14:05:53.000Z</published>
+    <updated>2018-10-07T14:05:18.042Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,8 @@
     
     </summary>
     
+    
+      <category term="tech" scheme="http://yoursite.com/tags/tech/"/>
     
   </entry>
   
