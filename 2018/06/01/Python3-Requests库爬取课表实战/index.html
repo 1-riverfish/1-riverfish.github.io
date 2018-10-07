@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Python3 Requests库爬取课表实战 · Ginger's blog</title><meta name="description" content="Python3 Requests库爬取课表实战
+在读这篇博客之前，请先答应我，不要用 Jupyter Notebook 来写爬虫，它只是用来做数据可视化的一个工具，先不说权限的问题，单单读写文件的编码就烦的一比。
+事情的起因是这样的，昨天(5.30)刚刚选完大三第二学期的课，想起来之前同学有在群里发"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Python3 Requests库爬取课表实战</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2018-06-01</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Python3/" title="Python3" class="a-tag">Python3</a><span>&nbsp;</span><a href="/tags/Requests/" title="Requests" class="a-tag">Requests</a><span>&nbsp;</span></span></p><p class="post-abstract"><h2 id="Python3-Requests库爬取课表实战"><a href="#Python3-Requests库爬取课表实战" class="headerlink" title="Python3 Requests库爬取课表实战"></a>Python3 Requests库爬取课表实战</h2><p><img src="http://39.105.38.48/images/2018/06/01/requests.jpg" alt=""></p>
+<p>在读这篇博客之前，请先答应我，<strong>不要用</strong> Jupyter Notebook <strong>来写爬虫</strong>，它只是用来做<strong>数据可视化</strong>的一个工具，先不说<strong>权限</strong>的问题，单单<strong>读写文件的编码</strong>就烦的一比。</p>
+<p>事情的起因是这样的，昨天(5.30)刚刚选完大三第二学期的课，想起来之前同学有在群里发过查询课表的链接，也就是这个<em>xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action?queryStudentId=\</em>******&amp;queryAcademicYear=**-**-***</p>
+<p>打开之后是这个</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/b14bb3665d2ac1bc.png" alt="某个倒霉蛋的课表"></p>
+<p>对应的html源码是这个</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/21c2474631ccef7c.png" alt=""></p>
+<p>按照<strong>之前爬虫代码</strong>的思路(scrapy还在看文档…)，使用<strong>Python3  urllib库</strong>外加 <strong>BeautifulSoup</strong>解析response得到目标数据(<strong>课表</strong>),那些学长也都是这么干的.</p>
+<p>但是我们只是想要的是大家课表的<strong>.xls文件</strong>(BeautifulSoup太烦了，不想写)，学校又给了一个下载课表.xls文件的Button,所以试一试能不能从这个Button下手搞一点突破。</p>
+<p>首先在浏览器右键检查元素，我们发现这个Button对应了一个JS函数</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/1.png" alt=""></p>
+<p>然后去HTML代码的头部看一下这个函数定义</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/2.png" alt=""></p>
+<p>啊哈，原来导出课表的 Button 对应的是一个runStuExcel.action,那么我们就得到了下载.xls文件对应的链接，即</p>
+<p><em>xk.urp.seu.edu.cn/jw_service/service/runStuExcel.action?queryStudentId=\</em>******&amp;queryAcademicYear=**-**-***</p>
+<p>读到这里大家可能会问，为啥不直接点一下Button然后看一下请求呢？小伙伴们可以试一试这种方法，其实也是可以的，而且后者更好</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/169852.png" alt=""></p>
+<p><img src="http://39.105.38.48/images/2018/06/01/1d35a561f9762629.png" alt=""></p>
+<p>(大家尤其要注意画红线的地方，<strong>肥肠重要</strong>)</p>
+<p>根据方法一得到的<strong>下载课表的链接是带参数</strong>的(学号及查询年份)，但是根据方法二的第二张图得到的<strong>Request Url显然没有带参数</strong>，那不带参数的url是否正确呢？</p>
+<p>很简单，我们新打开一个浏览器，把不带参数的下载课表.xls文件的URL黏贴进去，回车</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Request URL: http://xk.urp.seu.edu.cn/jw_service/service/runStuExcel.action</span><br></pre></td></tr></table></figure>
+<p>不出意外报错了</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/8aaa20dc1178ec54.png" alt=""></p>
+<p>显然，下载链接<strong>缺少学号和查询年份这两个必不可缺的参数</strong>，所以报错</p>
+<p>那么服务器是如何得到参数的呢？我拉上坐旁边的青松学长(他正在一脸开心地看着B站，然后一脸懵逼的被我打断，肥肠感谢~)</p>
+<p>“你看这张图，<img src="http://39.105.38.48/images/2018/06/01/169852.png" alt=""></p>
+<p>，Initiator是你查询课表的链接，也就是<em>xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action?queryStudentId=\</em>******&amp;queryAcademicYear=**-**-***</p>
+<p>，而查询课表的链接是带参数的，所以我猜测是你查询的时候给服务器提供了学号及查询年份然后当你下载的时候，服务器根据这些信息返回给你相对应的课表。”</p>
+<p>很有道理，让我们来试验一下。</p>
+<ol>
+<li>输入查询课表A的 url</li>
+<li>输入下载课表A的 url</li>
+<li>输入B的下载课表的url </li>
+</ol>
+<p>结果<strong>下载的两份.xls文件都是A的课表</strong>，所以学长说的是对的。</p>
+<p>那么问题来了，<strong>服务器如何知道我已经发送过查询课表的请求</strong>？</p>
+<p><strong>Cookie啊！</strong></p>
+<p>我们打开浏览器，仔细观察一下查询课表和下载课表这两个请求</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookie.png" alt=""></p>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookie81101.png" alt=""></p>
+<p>我们可以看到两个请求的Cookie是完全相同的，离真相越来越近了</p>
+<p>首先，浏览器发送<strong>带参数，并且Cookie为None</strong>的查询课表请求<strong>(第一次查询课表时浏览器没有Cookie)</strong>,服务器新建Session并返回SessionID保存在本地Cookie里</p>
+<p>我们来实验一下</p>
+<ol>
+<li>清除本地Cookie</li>
+</ol>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookiefd015.png" alt=""></p>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookie698a1.png" alt=""></p>
+<ol start="2">
+<li>发送不带Cookie的查询A课表请求</li>
+</ol>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookief3466.png" alt=""></p>
+<ol start="3">
+<li>服务器响应头，我们可以参考服务器的响应头中包含了Cookie</li>
+</ol>
+<p><img src="http://39.105.38.48/images/2018/06/01/Cookieaedf9.png" alt=""></p>
+<ol start="4">
+<li>发送查询B课表的请求</li>
+</ol>
+<p><img src="http://39.105.38.48/images/2018/06/01/B.png" alt=""></p>
+<p>请求的Cookie用的是A的Cookie,并且服务器在响应头中并没有设置Cookie，说明<strong>Cookie与查询链接的两个参数无关</strong></p>
+<p><img src="http://39.105.38.48/images/2018/06/01/responseHeader.png" alt=""></p>
+<ol start="5">
+<li>浏览器发送下载B课表的请求，不带参数，带Cookie,正确下载B的课表</li>
+</ol>
+<p>至此，真相已经很明显了，我来<strong>总结</strong>一下</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/49db28cf80588ad9.png" alt=""></p>
+<p><strong>服务器响应并设置的Cookie仅仅是SessionID,浏览器发送带Cookie的查询课表的请求则会更改对应Session的内容(学号，查询日期)。当浏览器发送带有Cookie的下载课表的请求，服务器根据Cookie对应Session中的内容返回相应课表。</strong></p>
+<p>至此思路搞清楚了，开始写代码!</p>
+<ol>
+<li>在浏览器发送带有参数没有Cookie的查询课表的请求，获取Cookie(SessionID)</li>
+<li>在浏览器发送带有Cookie(SessionID)和参数的查询A课表的请求，更新Session内容</li>
+<li>在浏览器发送带有Cookie(SessionID)的下载A课表的请求</li>
+<li>保存响应数据流到本地</li>
+<li>循环 2~4</li>
+</ol>
+<p>完全没有解析的部分，所以代码短了很多，另外学校的网站没有反爬虫机制，出于道德考虑，没有开多线程，也没有设置爬去随机时间间隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import shutil</span><br><span class="line"></span><br><span class="line">#  SessionID</span><br><span class="line">cookies = &#123;&quot;JSESSIONID&quot;:&quot;0000dbiPVo0ZAd1ZJ8vrywDmhZw:143paqjh6&quot;&#125;</span><br><span class="line"></span><br><span class="line">#  构造查询请求，更新SessionID对应Session中的内容</span><br><span class="line">pre_url_header = &quot;http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action?queryStudentId=71Y16&quot;</span><br><span class="line">pre_url_tail = &quot;&amp;queryAcademicYear=18-19-2&quot;</span><br><span class="line"></span><br><span class="line">xls_url = &quot;http://xk.urp.seu.edu.cn/jw_service/service/runStuExcel.action&quot;</span><br><span class="line"></span><br><span class="line"># 71Y16101-128  全英班</span><br><span class="line">def get_url(num):</span><br><span class="line">    pre_url = pre_url_header + str(i) + pre_url_tail</span><br><span class="line">    print(pre_url)</span><br><span class="line">    requests.get(pre_url,cookies=cookies)</span><br><span class="line">    </span><br><span class="line">    response = requests.get(xls_url,cookies=cookies,stream=True)</span><br><span class="line"></span><br><span class="line">    file_name = &quot;71Y16&quot;+str(num)+&apos;.xls&apos;</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        with open(&quot;G:\\PYTHON\\Crawler\\Request\\Subjects\\Data\\&quot;+file_name,&quot;wb&quot;) as file:</span><br><span class="line">            response.raw.decode_content = True</span><br><span class="line">            shutil.copyfileobj(response.raw,file)</span><br><span class="line"></span><br><span class="line">for i in range(101,129):</span><br><span class="line">    get_url(i)</span><br></pre></td></tr></table></figure>
+<p>爬取到的数据</p>
+<p><img src="http://39.105.38.48/images/2018/06/01/ced2655efd58cb8d.png" alt=""></p>
+<blockquote>
+<p>在写代码中遇到的一些问题…</p>
+<p>python编码问题  –  弃用jupyter notebook转向pycharm</p>
+<p>保存相应文件到本地 – shutil库</p>
+</blockquote>
+<p><a href="http://windrocblog.sinaapp.com/?p=1931" target="_blank" rel="noopener">shutil库使用</a></p>
+<p><a href="https://blog.csdn.net/katyusha1/article/details/78391171" target="_blank" rel="noopener">Requests库使用</a></p>
+<p><a href="http://docs.python-requests.org/zh_CN/latest/" target="_blank" rel="noopener">Requests库文档</a></p>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2018/06/01/Python3-Requests库爬取课表实战/%20Ginger's blog%20Python3 Requests库爬取课表实战" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2018/10/07/Github+Hexo搭建个人博客/" title=""><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: </a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2018/05/30/Scrapy食用指南4/" title="Scrapy食用指南4">下一篇: Scrapy食用指南4&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Emacs进阶--越过基础的蕃篱 · Ginger's blog</title><meta name="description" content="Emacs进阶–越过基础的蕃篱基本概念键入指令EMACS键入指令的两种方式
+
+Ctrl
+Meta(可用ESC键替代)
+
+所有 EMACS 的指令都可以 Meta 键表示出来，通常Emacs指令都会有一个Hotkey与之连结
+1Ctrl-X Ctrl-C  ESC-X save-buffers-kil"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Emacs进阶--越过基础的蕃篱</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-10-17</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Emacs/" title="Emacs" class="a-tag">Emacs</a><span>&nbsp;</span><a href="/tags/编辑器/" title="编辑器" class="a-tag">编辑器</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Emacs进阶–越过基础的蕃篱"><a href="#Emacs进阶–越过基础的蕃篱" class="headerlink" title="Emacs进阶–越过基础的蕃篱"></a>Emacs进阶–越过基础的蕃篱</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="键入指令"><a href="#键入指令" class="headerlink" title="键入指令"></a>键入指令</h3><p>EMACS键入指令的两种方式</p>
+<ul>
+<li>Ctrl</li>
+<li>Meta(可用<strong>ESC</strong>键替代)</li>
+</ul>
+<p><strong>所有 EMACS 的指令都可以 Meta 键表示出来</strong>，通常Emacs指令都会有一个Hotkey与之连结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-X Ctrl-C  ESC-X save-buffers-kill-emacs</span><br></pre></td></tr></table></figure>
+<h3 id="指令补全"><a href="#指令补全" class="headerlink" title="指令补全"></a>指令补全</h3><p>使用Meta键入指令，可使用EMACS <em>completion</em></p>
+<ul>
+<li>TAB 尽可能将其余的字串填满</li>
+<li>SPACE 最多填充一个音节</li>
+<li>？列出所有可能的选项</li>
+</ul>
+<p><img src="http://ww2.sinaimg.cn/large/0060lm7Tly1fks6m74169j30hb0ijdgv.jpg" alt="Meta-x 自动补全"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-v  下移视窗</span><br><span class="line">Meta-v  上移视窗</span><br></pre></td></tr></table></figure>
+<h3 id="线上辅助说明"><a href="#线上辅助说明" class="headerlink" title="线上辅助说明"></a>线上辅助说明</h3><p>EMACS线上辅助说明都是以<strong>Ctrl-h</strong>为开端，有以下两种</p>
+<ul>
+<li>Ctrl-h(作为前置字,prefix key)</li>
+</ul>
+<p>等候使用者输入其他的指令，比如<code>？</code>列出所有可使用的选择</p>
+<ul>
+<li>Ctrl-h Ctrl-h</li>
+</ul>
+<p>此时EMACS会开启一个视窗，将所有与求助相关的选项都列出来并做简要的说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用方法</span><br><span class="line">Ctrl-h a</span><br></pre></td></tr></table></figure>
+<p>常用的线上辅助说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//对象是hotkey</span><br><span class="line">Ctrl-h c	简述hotkey</span><br><span class="line">Ctrl-h k	详述hotkey</span><br><span class="line"></span><br><span class="line">//对象是指令</span><br><span class="line">Ctrl-h w	查看该指令是否有对应hotkey  Where is command: save-buffers-kill-emacs</span><br><span class="line">Ctrl-h a	用Regexp(正则表达式)匹配指令</span><br></pre></td></tr></table></figure>
+<h3 id="视窗指令"><a href="#视窗指令" class="headerlink" title="视窗指令"></a>视窗指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-x 1(delete-other-windows)	保留游标所在视窗，关闭其他视窗</span><br><span class="line">Ctrl-x o(other-window)	在不同视窗间切换</span><br><span class="line">Ctrl-v(scroll-up)	下卷</span><br><span class="line">Meta-v(scroll-down)	上卷</span><br></pre></td></tr></table></figure>
+<p>##　整合环境</p>
+<p><strong>EMACS不只提供一个编辑环境，而提供一个整合环境</strong></p>
+<ol>
+<li>执行Linux Shell指令</li>
+<li>Directory Editor(Dired)</li>
+<li>年历，日历功能</li>
+<li>收发电子邮件</li>
+<li>版本控制</li>
+<li>娱乐环境</li>
+<li>…</li>
+</ol>
+<blockquote>
+<p>先唤起代表此功能的mode,EMACS的模式分为major mode 与minor mode,每次只能使用一个主要模式，但可以搭配多个次要模式。</p>
+</blockquote>
+<h3 id="Shell模式"><a href="#Shell模式" class="headerlink" title="Shell模式"></a>Shell模式</h3><blockquote>
+<p>Any question please contact <a href="www.github.com/1-riverfish">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/10/17/Emacs进阶-越过基础的蕃篱/%20Ginger's blog%20Emacs进阶--越过基础的蕃篱" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/10/18/数据搜集与预处理/" title="数据获取与预处理"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: 数据获取与预处理</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/10/15/正则表达式/" title="正则表达式(转载)">下一篇: 正则表达式(转载)&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

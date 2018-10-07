@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Linux入门基础7 · Ginger's blog</title><meta name="description" content="Linux入门基础7磁盘基本概念
+机械硬盘
+
+cylinder 柱面
+sector 扇区
+head 磁头（512字节）
+
+
+磁盘在Linux中的表示
+Linux所有设备都被抽象为一个文件，保存在/dev下
+设备名称一般为hd或sd  [a-z] ([a-z]为分区号)
+IDE设备的名称为hd[a-z"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Linux入门基础7</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-09</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/tech/" title="tech" class="a-tag">tech</a><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Linux入门基础7"><a href="#Linux入门基础7" class="headerlink" title="Linux入门基础7"></a>Linux入门基础7</h1><h2 id="磁盘基本概念"><a href="#磁盘基本概念" class="headerlink" title="磁盘基本概念"></a>磁盘基本概念</h2><blockquote>
+<p>机械硬盘</p>
+<ul>
+<li>cylinder 柱面</li>
+<li>sector 扇区</li>
+<li>head 磁头（512字节）</li>
+</ul>
+</blockquote>
+<h3 id="磁盘在Linux中的表示"><a href="#磁盘在Linux中的表示" class="headerlink" title="磁盘在Linux中的表示"></a>磁盘在Linux中的表示</h3><blockquote>
+<p>Linux所有设备都被抽象为一个文件，保存在/dev下</p>
+<p>设备名称一般为hd或sd  [a-z] ([a-z]为分区号)</p>
+<p>IDE设备的名称为hd[a-z],SATA,SCSI,SAS,USB等设备的名称为sd[a-z]</p>
+</blockquote>
+<h3 id="分区概念"><a href="#分区概念" class="headerlink" title="分区概念"></a>分区概念</h3><blockquote>
+<p>将一个磁盘逻辑地分为几个区，每个区当作独立磁盘，以方便使用管理。</p>
+<p>设备名称加分区号   /dev/sda/sda1</p>
+<p>主流的分区机制分为MBR和GPT两种</p>
+<ul>
+<li>MBR(Master Boot Record)，应用于绝大多数使用BIOS的PC设备<ul>
+<li>MBR支持32bit和64bit系统</li>
+<li>MBR支持分区数量有限</li>
+<li>MBR只支持不超过2T的硬盘，超过2T的硬盘只能使用2T空间（有第三方解决办法）</li>
+<li>主分区最多只能创建四个</li>
+<li>扩展分区 一个扩展分区会占用一个主分区位置(不能直接使用，必须在此基础上创建逻辑分区)</li>
+<li>逻辑分区 Linux最多支持163个IDE分区和15个SCSI分区(最多)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>GPT(GUID Partition Table) 是一个比较新的分区机制，解决了MBR很多缺点<ul>
+<li>支持超过2T的磁盘</li>
+<li>向后兼容MBR</li>
+<li>必须在支持<strong>UEFI</strong>(新一代引导系统)的硬件上才能使用</li>
+<li>必须使用64bit系统</li>
+<li>Mac,Linux都支持GPT分区格式</li>
+<li>Win7 64bit winServer2008 64bit支持GPT</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Any question please contact <a href="https://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/09/Linux入门基础7/%20Ginger's blog%20Linux入门基础7" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/09/Linux入门基础8/" title="Linux入门基础8"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: Linux入门基础8</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/09/Linux入门基础6/" title="Linux入门基础6">下一篇: Linux入门基础6&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Linux入门基础18 · Ginger's blog</title><meta name="description" content="Linux入门基础18Linux命令行文本处理工具文件浏览
+
+cat
+more
+less
+head
+tail
+
+
+基于关键字搜索
+grep
+grep name /dir
+find / -user name | grep video
+
+-i    搜索是忽略大小写
+-n    显示结果所在行数
+-v "><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Linux入门基础18</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-14</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/tech/" title="tech" class="a-tag">tech</a><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Linux入门基础18"><a href="#Linux入门基础18" class="headerlink" title="Linux入门基础18"></a>Linux入门基础18</h1><h2 id="Linux命令行文本处理工具"><a href="#Linux命令行文本处理工具" class="headerlink" title="Linux命令行文本处理工具"></a>Linux命令行文本处理工具</h2><h3 id="文件浏览"><a href="#文件浏览" class="headerlink" title="文件浏览"></a>文件浏览</h3><blockquote>
+<ul>
+<li><code>cat</code></li>
+<li><code>more</code></li>
+<li><code>less</code></li>
+<li><code>head</code></li>
+<li><code>tail</code></li>
+</ul>
+</blockquote>
+<h3 id="基于关键字搜索"><a href="#基于关键字搜索" class="headerlink" title="基于关键字搜索"></a>基于关键字搜索</h3><blockquote>
+<p><code>grep</code></p>
+<p><code>grep name /dir</code></p>
+<p><code>find / -user name | grep video</code></p>
+<ul>
+<li>-i    搜索是忽略大小写</li>
+<li>-n    显示结果所在行数</li>
+<li>-v     输出不带关键字的行(排除操作)</li>
+<li>-Ax  在输出的时候包含结果所在行之后的指定行数</li>
+<li>-Bx  在输出的时候包含结果所在行之前的指定行数</li>
+</ul>
+</blockquote>
+<h3 id="基于列处理文本"><a href="#基于列处理文本" class="headerlink" title="基于列处理文本"></a>基于列处理文本</h3><blockquote>
+<p>命令<code>cut</code>  用以基于列处理文本内容</p>
+<p><code>cut -d: -f1 /etc/passwd</code></p>
+<p><code>grep name /etc/passwd | cut -d: -f3</code></p>
+<ul>
+<li><p>-d 指定分割字符</p>
+</li>
+<li><p>-f  指定输出的列号(显示第几列)</p>
+</li>
+<li><p>-c  基于字符进行切割(显示字符)</p>
+<p><code>cut -c2-6 /etc/passwd</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="文本统计"><a href="#文本统计" class="headerlink" title="文本统计"></a>文本统计</h3><blockquote>
+<p>命令<code>wc</code>  用以统计文本信息</p>
+<p><code>wc  filename</code></p>
+<ul>
+<li>-l  只统计行数</li>
+<li>-w 只统计单词</li>
+<li>-c  只统计字节数</li>
+<li>-m 只统计字符数</li>
+</ul>
+</blockquote>
+<h3 id="文本排序"><a href="#文本排序" class="headerlink" title="文本排序"></a>文本排序</h3><blockquote>
+<p>命令<strong>sort</strong>  用以对文本内容进行排序，不支持中文</p>
+<p><code>sort filename</code></p>
+<ul>
+<li>-r    倒序</li>
+<li>-n   基于数字</li>
+<li>-f    忽略大小写</li>
+<li>-u   删除重复行</li>
+<li>-t  c    使用c作为分隔符为列进行排序</li>
+<li>-k  x    当进行基于指定字符分割为列的排序时，指定基于那个列的排序</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>uniq</code>  删除重复的相邻行</p>
+</blockquote>
+<h3 id="文本比较"><a href="#文本比较" class="headerlink" title="文本比较"></a>文本比较</h3><blockquote>
+<p><code>diff</code>  </p>
+<p><code>diff  filename1  filename2</code></p>
+<ul>
+<li><p>-i   忽略大小写</p>
+</li>
+<li><p>-b  忽略空格数量的变化</p>
+</li>
+<li><p>-u  统一显示比较信息(一般用以生成patch文件/补丁文件)</p>
+<p><code>diff -u filename1 filename2 &gt; final.patch</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="检查拼写"><a href="#检查拼写" class="headerlink" title="检查拼写"></a>检查拼写</h3><blockquote>
+<p><strong>aspell</strong>  用以显示检查英文拼写</p>
+</blockquote>
+<h3 id="处理文本内容"><a href="#处理文本内容" class="headerlink" title="处理文本内容"></a>处理文本内容</h3><blockquote>
+<p><strong>tr</strong>  用以处理文本内容(translate)</p>
+<ul>
+<li><p>删除关键字</p>
+<p><code>tr  -d &#39;TMD&#39; &lt; filename</code></p>
+</li>
+<li><p>转换大小写</p>
+<p><code>tr   &#39;a-z&#39;&#39;A-Z&#39;  &lt; filename</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="搜索替换"><a href="#搜索替换" class="headerlink" title="搜索替换"></a>搜索替换</h3><blockquote>
+<p><code>sed</code>  用以搜索并替换文本</p>
+<p><code>sed  &#39;s/  /  /g&#39;</code>  </p>
+<p><code>sed  &#39;l,50&#39;</code></p>
+<p>-e  匹配多个</p>
+<p>-f  把命令保存在文件中，调用文件</p>
+</blockquote>
+<blockquote>
+<p>Any question please contact <a href="https://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/14/Linux入门基础18/%20Ginger's blog%20Linux入门基础18" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/15/Linux入门基础19/" title="Linux入门基础19"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: Linux入门基础19</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/13/Linux入门基础17/" title="Linux入门基础17">下一篇: Linux入门基础17&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

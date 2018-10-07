@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Linux入门基础13 · Ginger's blog</title><meta name="description" content="Linux入门基础13Linux权限机制权限
+
+权限是操作系统用来限制对资源访问的机制，权限一般分为读，写，执行。系统中每个文件都拥有特定的权限，所属用户及所属组，通过这样的机制来限制哪些用户，哪些组可以对特定文件进行什么样的操作。
+每个进程都是以某个用户的身份运行，所以进程的权限与该用户的权限一样"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Linux入门基础13</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-10</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/tech/" title="tech" class="a-tag">tech</a><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Linux入门基础13"><a href="#Linux入门基础13" class="headerlink" title="Linux入门基础13"></a>Linux入门基础13</h1><h2 id="Linux权限机制"><a href="#Linux权限机制" class="headerlink" title="Linux权限机制"></a>Linux权限机制</h2><h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><blockquote>
+<ul>
+<li>权限是操作系统用来限制对资源访问的机制，权限一般分为<strong>读，写，执行</strong>。系统中每个文件都拥有特定的权限，所属用户及所属组，通过这样的机制来限制哪些用户，哪些组可以对特定文件进行什么样的操作。</li>
+<li>每个进程都是以某个用户的身份运行，所以进程的权限与该用户的权限一样，用户的权限大，该进程拥有的权限就大。</li>
+</ul>
+</blockquote>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><blockquote>
+<p>Linux中，每个文件拥有三种权限</p>
+</blockquote>
+<p><img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fjeskpd73ej30ia068aad.jpg" alt="文件权限"></p>
+<p><strong>目录必须有x权限，否则无法查看其内容。</strong></p>
+<h3 id="UGO"><a href="#UGO" class="headerlink" title="UGO"></a>UGO</h3><blockquote>
+<p>Linux权限基于UGO模型进行控制:</p>
+<ul>
+<li>U(USER) G(GROUP) O(OTHER)</li>
+<li>每一个文件的权限基于UGO进行设置</li>
+<li>权限三个一组(rwx),对应UGO分别设置</li>
+<li>每一个文件拥有一个所属用户和所属组，对应UG，不属于该文件所属用户和所属组的使用O权限</li>
+</ul>
+<p>命令<code>ls -l</code>  可以查看当前目录下文件的详细信息:</p>
+</blockquote>
+<p><img src="http://ww3.sinaimg.cn/large/0060lm7Tly1fjfws1mwzwj30ji0c5aaf.jpg" alt="UGO"></p>
+<h3 id="修改文件所属用户，所属组"><a href="#修改文件所属用户，所属组" class="headerlink" title="修改文件所属用户，所属组"></a>修改文件所属用户，所属组</h3><blockquote>
+<ul>
+<li>命令<code>chown</code>  用以改变文件的所属用户</li>
+</ul>
+<p><code>chown jiang filename</code>  </p>
+<p><strong>-R 参数递归修改目录下的所有文件的所属用户</strong></p>
+<ul>
+<li>命令<code>chgrp</code>  用以改变文件的所属组</li>
+</ul>
+<p><code>chgrp jiang filename</code></p>
+<p><strong>-R 参数递归修改目录下的所有文件的所属组</strong></p>
+</blockquote>
+<h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><blockquote>
+<ul>
+<li>命令chmod用以修改文件的权限</li>
+</ul>
+<p><code>chmod 模式 文件</code> </p>
+<ul>
+<li>模式为如下格式<ul>
+<li>u,g,o分别代表用户，组和其他</li>
+<li>a可以代指ugo</li>
+<li>+,-代表加入或删除对应权限</li>
+<li>r,w,x代表三种权限</li>
+</ul>
+</li>
+<li>模式实例<ul>
+<li>chmod u+rw filename</li>
+<li>chmod g-x filename</li>
+<li>chmod go+r filename</li>
+<li>chmod a-x filename</li>
+<li><strong>-R 参数递归修改目录下的所有文件的所属组</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>命令chmod 也支持以数字方式修改权限</p>
+<p>-r =4 (2^2)</p>
+<p>-w=2(2^1)</p>
+<p>-x=1(2^0)</p>
+<p>没有权限就是0</p>
+</li>
+<li><p>使用数字表示权限时，每组权限分别为对应数字之和</p>
+</li>
+</ul>
+<p><code>chmod 660 filename</code></p>
+<p><code>chmod 777 filename</code></p>
+<p>Any question please contact <a href="https://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/10/Linux入门基础13/%20Ginger's blog%20Linux入门基础13" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/12/Linux入门基础14/" title="Linux入门基础14"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: Linux入门基础14</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/10/Linux入门基础12/" title="Linux入门基础12">下一篇: Linux入门基础12&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

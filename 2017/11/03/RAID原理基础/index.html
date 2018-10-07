@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>RAID原理基础 · Ginger's blog</title><meta name="description" content="RAID原理基础
+现代硬盘缺陷：IO性能极弱，稳定性极差
+
+RAID(Redundant Array of Independent Disks)
+RAID廉价磁盘冗余阵列技术是通过多磁盘并行运算来提高计算机的存储IO性能，RAID有很多种类，称之为RAID级别，现代RAID共有七类，常用的有以下四类"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>RAID原理基础</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-11-03</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span><a href="/tags/RAID/" title="RAID" class="a-tag">RAID</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="RAID原理基础"><a href="#RAID原理基础" class="headerlink" title="RAID原理基础"></a>RAID原理基础</h1><blockquote>
+<p>现代硬盘缺陷：IO性能极弱，稳定性极差</p>
+</blockquote>
+<h2 id="RAID-Redundant-Array-of-Independent-Disks"><a href="#RAID-Redundant-Array-of-Independent-Disks" class="headerlink" title="RAID(Redundant Array of Independent Disks)"></a>RAID(Redundant Array of Independent Disks)</h2><blockquote>
+<p>RAID廉价磁盘冗余阵列技术是通过多磁盘并行运算来<strong>提高计算机的存储IO性能</strong>，RAID有很多种类，称之为RAID级别，现代RAID共有七类，常用的有以下四类</p>
+</blockquote>
+<h3 id="RAID分类"><a href="#RAID分类" class="headerlink" title="RAID分类"></a>RAID分类</h3><ul>
+<li>RAID0    读写性能</li>
+<li>RAID1     读取性能，冗余性(保证数据安全)</li>
+<li>RAID5     读写性能，冗余性(一块硬盘)</li>
+<li>RAID6     读写性能，冗余性(两块硬盘)</li>
+</ul>
+<p>RAID0</p>
+<blockquote>
+<p>RAID0使用最少两块硬盘，在读写时将数据分开读写到多块硬盘的方式来提高读取性能</p>
+</blockquote>
+<p>RAID1</p>
+<blockquote>
+<p>RAID1使用最少两块硬盘,在写数据时，<strong>将数据复制写到多块硬盘</strong>，在读数据时，以提供冗余性.同时从多块硬盘读数据，以提高读性能</p>
+</blockquote>
+<p>RAID5</p>
+<blockquote>
+<p>至少使用三块硬盘，与RAID0类似，读写数据的时候会将数据分布式的读写在所有硬盘上，但是在<strong>写数据的时候会对数据进行奇偶校验运算</strong>，将校验信息同时保存在硬盘上，校验信息可以进行数据恢复使用</p>
+</blockquote>
+<p>RAID6</p>
+<blockquote>
+<p>至少使用四块硬盘，与RAID5类似，读写数据的时候会将数据分布式的读写在所有硬盘上，但是在<strong>写数据的时候会对数据进行奇偶校验运算</strong>，将校验信息同时保存在硬盘上，但是会比RAID5多保存一份校验信息，所以冗余性有所提升</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>RAID0</th>
+<th>RAID1</th>
+<th>RAID5</th>
+<th>RAID6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空间利用率</td>
+<td>所有硬盘空间之和</td>
+<td>所有磁盘中最小的那块</td>
+<td>1-1/n</td>
+<td>1-2/n</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>所有硬盘速度之和</td>
+<td>读为所有硬盘速度之和，写性能有所减弱</td>
+<td>读性能接近RAID0,写性能较RAID0弱一些弱一些</td>
+<td>接近RAID</td>
+</tr>
+<tr>
+<td>冗余能力</td>
+<td>无</td>
+<td>只要有一块硬盘正常，数据就正常</td>
+<td>可接受一块磁盘损坏</td>
+<td>可接受两块磁盘损坏</td>
+</tr>
+</tbody>
+</table>
+<h3 id="RAID实现"><a href="#RAID实现" class="headerlink" title="RAID实现"></a>RAID实现</h3><blockquote>
+<p>RAID实现方式有两种</p>
+</blockquote>
+<ul>
+<li>软件RAID</li>
+<li>硬件RAID</li>
+</ul>
+<blockquote>
+<p>Any question please contact <a href="https://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/11/03/RAID原理基础/%20Ginger's blog%20RAID原理基础" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/11/05/XX-Net实现科学上网/" title="XX-Net实现科学上网"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: XX-Net实现科学上网</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/11/03/Linux高级权限管理/" title="Linux高级权限管理">下一篇: Linux高级权限管理&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

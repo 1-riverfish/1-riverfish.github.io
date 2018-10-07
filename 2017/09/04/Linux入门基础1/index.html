@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Linux入门基础1 · Ginger's blog</title><meta name="description" content="Linux入门基础1
+CLI:BASH基本操作
+User通过Shell对Kernel进行操作。
+Shell的种类有两种，分别是
+
+CLI(Command Line Interface)
+GUI(Geography User Interface)
+
+
+
+Linux系统的Shell:
+
+CLI:BASH"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Linux入门基础1</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-04</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/tech/" title="tech" class="a-tag">tech</a><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Linux入门基础1"><a href="#Linux入门基础1" class="headerlink" title="Linux入门基础1"></a>Linux入门基础1</h1><hr>
+<h2 id="CLI-BASH基本操作"><a href="#CLI-BASH基本操作" class="headerlink" title="CLI:BASH基本操作"></a>CLI:BASH基本操作</h2><blockquote>
+<p>User通过<strong>Shell</strong>对<strong>Kernel</strong>进行操作。</p>
+<p>Shell的种类有两种，分别是</p>
+<ul>
+<li><strong>CLI</strong>(<em>Command Line Interface</em>)</li>
+<li><strong>GUI</strong>(<em>Geography User Interface</em>)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Linux系统的Shell:</p>
+<ul>
+<li>CLI:BASH</li>
+<li>GUI:(不同的Linux发行版有不同的桌面)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>BASH组成：</p>
+<ul>
+<li><p>提示符 <strong>#</strong>(root用户)  <strong>$</strong>(普通用户)  <code>su -</code></p>
+</li>
+<li><p>连接符 <strong>@</strong> 之后连接主机名</p>
+</li>
+<li><p><strong>～</strong> 表示当前工作目录</p>
+</li>
+<li><p>命令一般由三部分组成</p>
+<ul>
+<li><p>命令</p>
+</li>
+<li><p>选项</p>
+</li>
+<li><p>参数</p>
+<p>多进程终端</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>-a   –all</p>
+<p>&amp;   程序放在后台运行</p>
+<p><strong>Tab键  :</strong> </p>
+<ol>
+<li>补全命令:按一下自动补全 按两下列出所有以××开头的命令</li>
+<li>补全文件名</li>
+<li>无法自动补全参数</li>
+</ol>
+<p><code>clear</code>   清除当前屏幕</p>
+</blockquote>
+<blockquote>
+<p><strong>BASH -历史记录</strong></p>
+<p>BASH会保存输入的命令，可以通过按上下键查看。</p>
+<p><code>history</code> 列出所有输入的命令</p>
+<p>通过历史记录简化命令</p>
+<p><code>!!</code>前一个命令</p>
+<p><code>!字符</code>重复上一个以字符开头的命令</p>
+<p><code>!num</code>以历史记录的序号执行命令</p>
+<p><code>!?abc</code>重复之前包含abc的命令</p>
+<p><code>!-n</code>执行n个以前的命令</p>
+<p><strong><code>Ctrl R</code>搜索命令 任意一段字符串</strong></p>
+<p><strong>esc 再按 .</strong>   调用上一个命令的参数</p>
+</blockquote>
+<blockquote>
+<p>命令行通配符</p>
+<ul>
+<li><strong>*</strong> 匹配<strong>零个或多个</strong></li>
+<li>？匹配任意一个字符</li>
+<li>[0-9] 匹配一个数字范围</li>
+<li>[abc]匹配列表里任何字符</li>
+<li>[^abc]匹配列表以外字符</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>su - username</code>切换到 <strong>username</strong>这个用户</p>
+<p><code>su -</code> 切换用户和终端</p>
+<p><code>su</code> 切换用户，终端不变</p>
+<p><code>sudo</code>  使用管理员身份运行命令</p>
+<p><code>id</code> 显示当前用户信息</p>
+<p><code>passwd</code>修改当前用户密码</p>
+</blockquote>
+<blockquote>
+<p>BASH作业管理</p>
+<ul>
+<li>在后台运行进程 命令后加&amp;</li>
+<li>暂停某个程序 Ctrl+z 或者发送信号 17</li>
+<li>管理后台作业<ul>
+<li>jobs</li>
+<li>bg (background)</li>
+<li>fg (前台)</li>
+</ul>
+</li>
+</ul>
+<p>Ctrl + c 终止程序</p>
+</blockquote>
+<p><a href="http://study.163.com/course/courseLearn.htm?courseId=232007#/learn/video?lessonId=340051&amp;courseId=232007" target="_blank" rel="noopener">网易云课堂</a></p>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/04/Linux入门基础1/%20Ginger's blog%20Linux入门基础1" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/06/Linux入门基础2/" title="Linux入门基础2"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: Linux入门基础2</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/03/Moon框架入门教程5/" title="Moon框架入门教程5">下一篇: Moon框架入门教程5&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

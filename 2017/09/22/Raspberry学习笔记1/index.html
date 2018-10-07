@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Raspberry学习笔记1 · Ginger's blog</title><meta name="description" content="Raspberry学习笔记１
+介绍　　树莓派由注册于英国的慈善组织“Raspberry Pi 基金会”开发，Eben·Upton/埃·厄普顿为项目带头人。2012年3月，英国剑桥大学埃本·阿普顿（Eben Epton）正式发售世界上最小的台式机，又称卡片式电脑，外形只有信用卡大小，却具有电脑的所有基"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Raspberry学习笔记1</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-22</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Raspberry/" title="Raspberry" class="a-tag">Raspberry</a><span>&nbsp;</span><a href="/tags/卡片电脑/" title="卡片电脑" class="a-tag">卡片电脑</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Raspberry学习笔记１"><a href="#Raspberry学习笔记１" class="headerlink" title="Raspberry学习笔记１"></a>Raspberry学习笔记１</h1><p><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fk7kqzb3qoj30ek04vq2y.jpg" alt="Raspberry"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>　　树莓派由注册于英国的慈善组织“Raspberry Pi 基金会”开发，Eben·Upton/埃·厄普顿为项目带头人。2012年3月，英国剑桥大学埃本·阿普顿（Eben Epton）正式发售世界上最小的台式机，又称卡片式电脑，外形只有信用卡大小，<strong>却具有电脑的所有基本功能，这就是Raspberry Pi电脑板，</strong>中文译名”树莓派”。这一基金会以提升学校计算机科学及相关学科的教育，让计算机变得有趣为宗旨。基金会期望这 一款电脑无论是在发展中国家还是在发达国家，会有更多的其它应用不断被开发出来，并应用到更多领域。</p>
+<p>　　使用树莓派的目的是为了学习编程， 它最大的优势就是<strong>廉价</strong>， 同时又<strong>具备一台计算机所有的功能</strong>，如果你想学习编程，不妨购买一台树莓派。不过需要提及一下的是，树莓派并不适合用于嵌入式软件开发学习， 因为树莓派没有提供完整的电路原理图和 PCB 图,部分硬件资料可以去<a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/" target="_blank" rel="noopener">官网</a>查看，这也是一大遗憾。好在树莓派有大量的软件资料，操作基本的 IO 口倒是不成问题。 为这点烦恼的朋友们推荐另外一款开源硬件—<strong>Arduino</strong>，它可以和树莓派搭配使用。</p>
+<h2 id="树莓派３代B型"><a href="#树莓派３代B型" class="headerlink" title="树莓派３代B型"></a>树莓派３代B型</h2><p><img src="http://img.blog.csdn.net/20170529160228350" alt="树莓派 ３b"></p>
+<table>
+<thead>
+<tr>
+<th>型号</th>
+<th>SoC(System on Chip)</th>
+<th>CPU</th>
+<th>GPU</th>
+<th>RAM</th>
+<th>USB2.0接口数</th>
+<th>影像输出接口</th>
+<th>板载存储接口</th>
+<th>PIN数</th>
+<th>操作系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3B</td>
+<td>BCM2837</td>
+<td>Cortex-A53 四核64bit 1.2GHz</td>
+<td>Broadcom VideoCore IV, OpenGL ES 2.0, 1080p 30 h.264/MPEG-4 AVC 高清解码器</td>
+<td><strong>1GB LPDDR2</strong></td>
+<td>USB2.0 x4</td>
+<td>HMDI和DSI接口</td>
+<td>MicroSD卡插槽</td>
+<td>40PIN</td>
+<td>Debian GNU/Linux 、Fedora、Arch Linux 、RISC OS等  2代B型以上型号还支持Windows10 IoT</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://img.blog.csdn.net/20170529225106036" alt="树莓派接线图"></p>
+<blockquote>
+<p><a href="http://blog.csdn.net/u012867916/article/details/72792898" target="_blank" rel="noopener">参考博客</a></p>
+</blockquote>
+<blockquote>
+<p>Any question please contact <a href="http://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/22/Raspberry学习笔记1/%20Ginger's blog%20Raspberry学习笔记1" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/23/MongoDB学习笔记1/" title="MongoDB学习笔记1"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: MongoDB学习笔记1</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/22/Python学习笔记1/" title="Python学习笔记1">下一篇: Python学习笔记1&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

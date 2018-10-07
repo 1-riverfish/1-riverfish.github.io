@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>Linux入门基础20 · Ginger's blog</title><meta name="description" content="Linux入门基础20RPM软件包管理源代码形式
+
+绝大多数开源软件都是以源代码形式发布的
+源代码一般会被打包成tar.gz的归档压缩文件
+程序源代码需要编译成二进制形式之后才能够运行使用
+源代码基本编译流程
+./configure检查编译环境，相关库文件以及配置参数并生成makefile
+make"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Linux入门基础20</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2017-09-17</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/tech/" title="tech" class="a-tag">tech</a><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="Linux入门基础20"><a href="#Linux入门基础20" class="headerlink" title="Linux入门基础20"></a>Linux入门基础20</h1><h2 id="RPM软件包管理"><a href="#RPM软件包管理" class="headerlink" title="RPM软件包管理"></a>RPM软件包管理</h2><h3 id="源代码形式"><a href="#源代码形式" class="headerlink" title="源代码形式"></a>源代码形式</h3><blockquote>
+<ul>
+<li>绝大多数开源软件都是以源代码形式发布的</li>
+<li>源代码一般会被打包成tar.gz的归档压缩文件</li>
+<li>程序源代码需要编译成二进制形式之后才能够运行使用</li>
+<li>源代码基本编译流程<ul>
+<li>./configure检查编译环境，相关库文件以及配置参数并生成makefile</li>
+<li>make对源代码进行编译，生成可执行文件</li>
+<li>make install将生成的可执行文件安装到当前的计算机中</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>源代码形式的软件使用起来较为麻烦，但是兼容性及可控制性较好</li>
+<li>开源软件一般都会大量使用其他开源软件的功能，所以开源软件会有大量的依赖关系(使用某软件需要先安装其他软件)</li>
+</ul>
+</blockquote>
+<h3 id="RPM-Redhat-Package-Management"><a href="#RPM-Redhat-Package-Management" class="headerlink" title="RPM(Redhat Package Management)"></a>RPM(Redhat Package Management)</h3><blockquote>
+<ul>
+<li>源代码形式的缺点:操作复杂，编译时间较长，极容易出现错误</li>
+<li>源代码形式的优点:适用于所有系统，可定制</li>
+<li>RPM通过将源代码基于特定平台系统编译为可执行文件，并保存依赖关系，来简化开源软件的安装管理</li>
+<li>RPM设计目标如下<ul>
+<li>使用简单</li>
+<li>使用单一软件包格式文件发布(.rpm文件)</li>
+<li>可升级</li>
+<li>追踪软件依赖关系</li>
+<li>基本信息查询</li>
+<li>软件验证功能</li>
+<li>支持多平台</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>RPM软件包命名规范</p>
+<p>softwarename.version.<strong>system.32/64.</strong>rpm</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>RPM基础命令</p>
+<ul>
+<li><p>安装软件   <code>rpm -i software.rpm</code></p>
+</li>
+<li><p>卸载软件   <code>rpm -e sofeware</code></p>
+</li>
+<li><p>升级形式安装   <code>rpm -U software-new.rpm</code></p>
+<p>rpm支持通过http,ftp协议安装软件</p>
+<p>rpm -ivh <a href="http://www.linuxcast.net/software.rpm" target="_blank" rel="noopener">http://www.linuxcast.net/software.rpm</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>可以加入一下参数</p>
+<p>-v 显示相关信息</p>
+<p>-h 显示进度条</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>安装软件需要管理员权限</li>
+</ul>
+</blockquote>
+<h3 id="RPM查询"><a href="#RPM查询" class="headerlink" title="RPM查询"></a>RPM查询</h3><blockquote>
+<ul>
+<li><code>rpm -qa</code>   列出已安装的所有rpm软件</li>
+<li><code>rpm -qi   packagename</code>   查询已安装软件信息</li>
+<li><code>rpm -qf   filename</code>   查询目标文件属于哪个rpm包</li>
+<li><code>rpm -ql   packagename</code>   查询指定已安装rpm软件包含的文件</li>
+<li><code>rpm -qip  software.rpm</code>   查询未安装rpm文件的信息</li>
+<li><code>rpm -qlp  software.rpm</code>   查询未安装rpm文件包含的文件</li>
+</ul>
+</blockquote>
+<h3 id="RPM验证"><a href="#RPM验证" class="headerlink" title="RPM验证"></a>RPM验证</h3><blockquote>
+<ul>
+<li><p>软件在传播的过程中可能会被恶意的修改，为了安全起见现代系统都加入了对软件的验证功能</p>
+</li>
+<li><p>验证一般使用非对称加密算法，所以需要一个密钥</p>
+</li>
+<li><p>导入密钥</p>
+<p>rpm  –import  RPM-GPG-KEY-Ubuntu(默认加入)</p>
+</li>
+<li><p>验证rpm文件</p>
+<p>rpm -K software.rpm</p>
+</li>
+<li><p>验证已安装的软件</p>
+<p>rpm -V software</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Any question please contact <a href="https://www.github.com/1-riverfish" target="_blank" rel="noopener">1-riverfish</a></p>
+</blockquote>
+</p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2017/09/17/Linux入门基础20/%20Ginger's blog%20Linux入门基础20" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2017/09/22/2017级软件学院学长学姐经验交流会发言稿/" title="2017级软件学院学长学姐经验交流会发言稿"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: 2017级软件学院学长学姐经验交流会发言稿</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2017/09/15/Linux入门基础19/" title="Linux入门基础19">下一篇: Linux入门基础19&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
