@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-07T14:05:18.042Z</updated>
+  <updated>2018-10-12T09:21:36.063Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shell脚本入门</title>
+    <link href="http://yoursite.com/2018/10/11/Shell%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2018/10/11/Shell脚本入门/</id>
+    <published>2018-10-11T09:24:56.000Z</published>
+    <updated>2018-10-12T09:21:36.063Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Shell脚本入门&quot;&gt;&lt;a href=&quot;#Shell脚本入门&quot; class=&quot;headerlink&quot; title=&quot;Shell脚本入门&quot;&gt;&lt;/a&gt;Shell脚本入门&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>Github+Hexo搭建个人博客</title>
@@ -485,33 +510,6 @@
       <category term="安装系统" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"/>
     
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>K-近邻算法</title>
-    <link href="http://yoursite.com/2017/10/19/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/10/19/K-近邻算法/</id>
-    <published>2017-10-19T11:34:31.000Z</published>
-    <updated>2018-07-18T14:30:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;K近邻算法&quot;&gt;&lt;a href=&quot;#K近邻算法&quot; class=&quot;headerlink&quot; title=&quot;K近邻算法&quot;&gt;&lt;/a&gt;K近邻算法&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;Any question please contact &lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
