@@ -1,4 +1,4 @@
-/*@import url("//fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:100,300,400,600");*/
+@import url("//fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:100,300,400,600");
 @keyframes fadein {
   from {
     opacity: 0; }
@@ -471,7 +471,7 @@ a:focus {
   color: #3f587d !important;
   background-color: transparent !important;
   text-decoration: none;
-  border-bottom: solid transparent 2px; }
+  border-bottom: solid rgba(0, 0, 0, 0) 2px; }
 
 .soc a:focus {
   color: #3f587d !important; }
