@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-12T09:21:36.063Z</updated>
+  <updated>2018-10-13T10:11:37.546Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>通过命令行发送邮件</title>
+    <link href="http://yoursite.com/2018/10/13/%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/10/13/通过命令行发送邮件/</id>
+    <published>2018-10-13T09:58:40.000Z</published>
+    <updated>2018-10-13T10:11:37.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;通过命令行发送邮件&quot;&gt;&lt;a href=&quot;#通过命令行发送邮件&quot; class=&quot;headerlink&quot; title=&quot;通过命令行发送邮件&quot;&gt;&lt;/a&gt;通过命令行发送邮件&lt;/h1&gt;&lt;h2 id=&quot;电子邮件原理&quot;&gt;&lt;a href=&quot;#电子邮件原理&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="mail" scheme="http://yoursite.com/tags/mail/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Shell脚本入门</title>
     <link href="http://yoursite.com/2018/10/11/Shell%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2018/10/11/Shell脚本入门/</id>
     <published>2018-10-11T09:24:56.000Z</published>
-    <updated>2018-10-12T09:21:36.063Z</updated>
+    <updated>2018-10-13T09:43:58.932Z</updated>
     
     <summary type="html">
     
@@ -484,32 +508,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="LVM逻辑卷" scheme="http://yoursite.com/tags/LVM%E9%80%BB%E8%BE%91%E5%8D%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>双系统安装教程--Ubuntu Kylin</title>
-    <link href="http://yoursite.com/2017/10/22/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B-Ubuntu-Kylin/"/>
-    <id>http://yoursite.com/2017/10/22/双系统安装教程-Ubuntu-Kylin/</id>
-    <published>2017-10-22T11:11:05.000Z</published>
-    <updated>2018-07-18T14:30:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;双系统安装教程–Ubuntu-Kylin&quot;&gt;&lt;a href=&quot;#双系统安装教程–Ubuntu-Kylin&quot; class=&quot;headerlink&quot; title=&quot;双系统安装教程–Ubuntu Kylin&quot;&gt;&lt;/a&gt;双系统安装教程–Ubuntu
-        
-      
-    
-    </summary>
-    
-    
-      <category term="安装系统" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
     
   </entry>
   
