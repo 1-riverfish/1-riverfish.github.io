@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="1-riverfish"><title>《Linux命令行与Shell脚本编程大全》笔记Ch11 · Ginger's blog</title><meta name="description" content="《Linux命令行与Shell脚本编程大全》Note-Ch1111.1 使用多个命令如果要两个命令一起运行，可以把他们放到同一行中，彼此之间用分号隔开。
+1$ date &quot;+%Y-%m-%d %h:%m:%s&quot; ; who
+11.2 创建Shell脚本文件在创建shell脚本文件时，必须在第一行指定"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title">Share&amp;Joy</a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Ginger' Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li class="soc"><a href="https://github.com/1-riverfish" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a><a href="http://yoursite.com/atom.xml" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>《Linux命令行与Shell脚本编程大全》笔记Ch11</a></p><p class="post-meta"><span class="date meta-item">发布于&nbsp;2018-10-14</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a href="/tags/Linux/" title="Linux" class="a-tag">Linux</a><span>&nbsp;</span></span></p><p class="post-abstract"><h1 id="《Linux命令行与Shell脚本编程大全》Note-Ch11"><a href="#《Linux命令行与Shell脚本编程大全》Note-Ch11" class="headerlink" title="《Linux命令行与Shell脚本编程大全》Note-Ch11"></a>《Linux命令行与Shell脚本编程大全》Note-Ch11</h1><h2 id="11-1-使用多个命令"><a href="#11-1-使用多个命令" class="headerlink" title="11.1 使用多个命令"></a>11.1 使用多个命令</h2><p>如果要两个命令一起运行，可以把他们放到同一行中，彼此之间用分号隔开。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date <span class="string">"+%Y-%m-%d %h:%m:%s"</span> ; who</span><br></pre></td></tr></table></figure>
+<h2 id="11-2-创建Shell脚本文件"><a href="#11-2-创建Shell脚本文件" class="headerlink" title="11.2 创建Shell脚本文件"></a>11.2 创建Shell脚本文件</h2><p>在创建shell脚本文件时，必须在第一行指定要使用的shell(作为解释器)，其格式为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br></pre></td></tr></table></figure>
+<p>在通常的Shell脚本中，井号(#)用作注释行,shell并不会处理shell脚本中的注释行。然而shell脚本中的第一行是个例外。!会告诉shell用哪个解释器来运行脚本。</p>
+<p>运行shell脚本有两种方式</p>
+<ol>
+<li>作为解释器参数</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash test.sh</span><br></pre></td></tr></table></figure>
+<p>这种方式运行脚本，不需要在第一行制定解释器信息，写了也没用。</p>
+<ol start="2">
+<li>作为可执行程序</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x test.sh</span><br><span class="line">$ ./test.sh</span><br></pre></td></tr></table></figure>
+<p>注意，一定要写成./test.sh而不是test.sh,直接写test.sh，linux系统会去PATH里寻找有没有叫test.sh的，而只有/bin, /sbin, /usr/bin，/usr/sbin等在PATH里，你的当前目录通常不在PATH里，所以写成test.sh是会找不到命令的，要用./test.sh告诉shell说，就在当前目录找。</p>
+<h2 id="11-3-显示消息"><a href="#11-3-显示消息" class="headerlink" title="11.3 显示消息"></a>11.3 显示消息</h2><p><code>echo</code> 在终端输出给定的参数</p>
+<ul>
+<li>-n 打印一条信息并且不换行</li>
+<li>-e 启用反斜杠转义的解释(特殊字符)　e.g: 颜色　换行</li>
+</ul>
+<p>echo命令可用单引号或双引号来划定文本字符串(默认情况下不需要引号)</p>
+<p>单引号字符串的限制：</p>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</li>
+<li>单引号字串中不能出现单引号（对单引号使用转义符后也不行）</li>
+</ul>
+<p>双引号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">your_name=&apos;qinjx&apos;</span><br><span class="line">str=&quot;Hello, I know your are \&quot;$your_name\&quot;! \n&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>双引号里可以有变量</li>
+<li>双引号里可以出现转义字符</li>
+</ul>
+<h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><h3 id="环境变量-用户变量"><a href="#环境变量-用户变量" class="headerlink" title="环境变量　用户变量"></a>环境变量　用户变量</h3><p>通过<strong>$</strong>或者<strong>${}</strong>的形式引用变量，变量名两侧额外的花括号通常用来帮助识别美元符后的变量名。</p>
+<p>除了环境变量,shell脚本还允许在脚本中定义和使用你自己的变量。定义变量允许临时存储数据并在整个脚本中使用。用户变量可以是任何由字母、数字和下划线组成的文本字符串，长度不超过20个，并且区分大小写，<strong>使用等号将值赋给用户变量，在变量、等号和值之间不能出现空格。</strong></p>
+<p>shell脚本会自动决定变量值的数据类型(虽然一共只有整数和字符串两种)。在脚本的整个生命周期里,shell脚本中定义的变量会一直保持着他们的值但在shell脚本结束时会被删除掉。</p>
+<h3 id="命令替换"><a href="#命令替换" class="headerlink" title="命令替换"></a>命令替换</h3><p>shell脚本中最有用的特性之一就是可以从命令输出中提取信息，并将其赋给变量。把输出赋给变量之后，就可以随意在脚本中使用了。</p>
+<p>有两种方法可以将命令输出赋给变量:</p>
+<ul>
+<li>反引号字符(`)</li>
+<li>$()格式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Date=`date +%y-%m-%d %H:%M:%S`</span><br><span class="line">or</span><br><span class="line">Date=$(date +%y-%m-%d %H:%M:%S)</span><br></pre></td></tr></table></figure>
+<p>shell会运行命令替换符号中的命令，并将其输出赋值给变量Date</p>
+<h2 id="重定向输入和输出"><a href="#重定向输入和输出" class="headerlink" title="重定向输入和输出"></a>重定向输入和输出</h2><p>bash shell提供了几个操作符，可以将命令的输出重定向到另一个位置(比如文件)。重定向可以用于输入，也可以用于输出，可以将文件重定向到命令输入。</p>
+<h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><ol>
+<li><code>&gt;</code></li>
+</ol>
+<p>将命令的输出发送到一个文件中,如果文件不存在则创建，如果文件存在则将原文件中数据覆盖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date &gt; test.txt</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>&gt;&gt;</code></li>
+</ol>
+<p>将命令的输出追加到已有文件中</p>
+<h3 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h3><ol>
+<li><code>&lt;</code></li>
+</ol>
+<p>输入重定向将文件的内容重定向到命令</p>
+<ol start="2">
+<li><code>&lt;&lt;</code></li>
+</ol>
+<p>内联输入重定向符号</p>
+<p>你必须指定一个文本标记来划分输入数据的开始和结尾。任何字符串都可作为文本标记，但在数据的开始和结尾文本标记必须一致。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> &lt;&lt; marker</span><br><span class="line">data</span><br><span class="line">...</span><br><span class="line">data</span><br><span class="line">marker</span><br></pre></td></tr></table></figure>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><h2 id="执行数学运算"><a href="#执行数学运算" class="headerlink" title="执行数学运算"></a>执行数学运算</h2><h2 id="退出脚本"><a href="#退出脚本" class="headerlink" title="退出脚本"></a>退出脚本</h2></p></div><div class="share"><span>分享到</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a href="http://twitter.com/home?status=http://yoursite.com/2018/10/14/《Linux命令行与Shell脚本编程大全》笔记Ch11/%20Ginger's blog%20《Linux命令行与Shell脚本编程大全》笔记Ch11" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2018/10/27/Ubuntu下Clion配置、使用Glfw-Glad开发OpenGL项目/" title="Ubuntu下Clion配置、使用glfw,glad开发OpenGL项目"><i class="fa fa-angle-double-left"></i>&nbsp;上一篇: Ubuntu下Clion配置、使用glfw,glad开发OpenGL项目</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2018/10/13/通过命令行发送邮件/" title="通过命令行发送邮件">下一篇: 通过命令行发送邮件&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2018&nbsp;<a target="_blank" href="http://yoursite.com" rel="noopener noreferrer">1-riverfish</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

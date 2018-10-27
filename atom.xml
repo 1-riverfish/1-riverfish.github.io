@@ -45,6 +45,30 @@
   </entry>
   
   <entry>
+    <title>《Linux命令行与Shell脚本编程大全》笔记Ch11</title>
+    <link href="http://yoursite.com/2018/10/14/%E3%80%8ALinux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8EShell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8%E3%80%8B%E7%AC%94%E8%AE%B0Ch11/"/>
+    <id>http://yoursite.com/2018/10/14/《Linux命令行与Shell脚本编程大全》笔记Ch11/</id>
+    <published>2018-10-14T10:52:25.000Z</published>
+    <updated>2018-10-27T14:10:13.543Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;《Linux命令行与Shell脚本编程大全》Note-Ch11&quot;&gt;&lt;a href=&quot;#《Linux命令行与Shell脚本编程大全》Note-Ch11&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>通过命令行发送邮件</title>
     <link href="http://yoursite.com/2018/10/13/%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/10/13/通过命令行发送邮件/</id>
@@ -484,32 +508,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="RAID" scheme="http://yoursite.com/tags/RAID/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux高级权限管理</title>
-    <link href="http://yoursite.com/2017/11/03/Linux%E9%AB%98%E7%BA%A7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2017/11/03/Linux高级权限管理/</id>
-    <published>2017-11-03T08:17:09.000Z</published>
-    <updated>2018-07-18T14:30:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linux高级权限管理&quot;&gt;&lt;a href=&quot;#Linux高级权限管理&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="ACL" scheme="http://yoursite.com/tags/ACL/"/>
     
   </entry>
   
