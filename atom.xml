@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-14T04:51:41.416Z</updated>
+  <updated>2018-10-27T14:08:34.130Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ubuntu下Clion配置、使用glfw,glad开发OpenGL项目</title>
+    <link href="http://yoursite.com/2018/10/27/Ubuntu%E4%B8%8BClion%E9%85%8D%E7%BD%AE%E3%80%81%E4%BD%BF%E7%94%A8Glfw-Glad%E5%BC%80%E5%8F%91OpenGL%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2018/10/27/Ubuntu下Clion配置、使用Glfw-Glad开发OpenGL项目/</id>
+    <published>2018-10-27T13:20:47.000Z</published>
+    <updated>2018-10-27T14:08:34.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ubuntu下Clion配置、使用glfw-glad开发OpenGL项目&quot;&gt;&lt;a href=&quot;#Ubuntu下Clion配置、使用glfw-glad开发OpenGL项目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Clion" scheme="http://yoursite.com/tags/Clion/"/>
+    
+      <category term="OpenGL" scheme="http://yoursite.com/tags/OpenGL/"/>
+    
+      <category term="CMake" scheme="http://yoursite.com/tags/CMake/"/>
+    
+  </entry>
+  
+  <entry>
     <title>通过命令行发送邮件</title>
     <link href="http://yoursite.com/2018/10/13/%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>http://yoursite.com/2018/10/13/通过命令行发送邮件/</id>
     <published>2018-10-13T09:58:40.000Z</published>
-    <updated>2018-10-14T04:51:41.416Z</updated>
+    <updated>2018-10-14T04:58:08.832Z</updated>
     
     <summary type="html">
     
@@ -482,32 +510,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="ACL" scheme="http://yoursite.com/tags/ACL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux高级系统管理</title>
-    <link href="http://yoursite.com/2017/10/30/Linux%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2017/10/30/Linux高级系统管理/</id>
-    <published>2017-10-30T12:32:22.000Z</published>
-    <updated>2018-07-18T14:30:46.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linux系统基础–LVM逻辑卷&quot;&gt;&lt;a href=&quot;#Linux系统基础–LVM逻辑卷&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="LVM逻辑卷" scheme="http://yoursite.com/tags/LVM%E9%80%BB%E8%BE%91%E5%8D%B7/"/>
     
   </entry>
   
